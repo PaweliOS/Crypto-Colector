@@ -66,6 +66,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressedPlnButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bdH-rh-bT4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPE-W8-GRu">
                                         <rect key="frame" x="110.5" y="0.0" width="66.5" height="37"/>
@@ -79,6 +82,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressedUsdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Rz-uK-WAF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYg-Vq-NEC">
                                         <rect key="frame" x="225" y="0.0" width="66.5" height="37"/>
@@ -92,6 +98,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressedEurButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U99-lR-3Bh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -186,7 +195,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXCHANGE RATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37C-k4-uey">
-                                <rect key="frame" x="122" y="351" width="170" height="26"/>
+                                <rect key="frame" x="122" y="351" width="170.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

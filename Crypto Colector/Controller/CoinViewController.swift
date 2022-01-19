@@ -24,10 +24,23 @@ class CoinViewController: UIViewController {
 
     
     
-    
+    @IBAction func pressedPlnButton(_ sender: UIButton) {
+        outGuzikPLN.isSelected = true
+        outGuzikUSD.isSelected = false
+        outGuzikEUR.isSelected = false
+    }
+    @IBAction func pressedUsdButton(_ sender: UIButton) {
+        outGuzikPLN.isSelected = false
+        outGuzikUSD.isSelected = true
+        outGuzikEUR.isSelected = false
+    }
+    @IBAction func pressedEurButton(_ sender: UIButton) {
+        outGuzikPLN.isSelected = false
+        outGuzikUSD.isSelected = false
+        outGuzikEUR.isSelected = true
+    }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
-        // zamień na case
         var fiatName = "PLN"
         
    
