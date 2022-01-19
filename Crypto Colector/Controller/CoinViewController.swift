@@ -29,10 +29,15 @@ class CoinViewController: UIViewController {
     @IBAction func pressedRefresh(_ sender: UIButton) {
         // zamień na case
         var fiatName = "PLN"
+        
+   
         if outGuzikPLN.isSelected {
             fiatName = "PLN"
+        } else if outGuzikUSD.isSelected {
+            fiatName = "USD"
+        } else {
+            fiatName = "EUR"
         }
-        
         priceManager.fetchCoinPrice(coinName: "BTC", fiatName: fiatName)
     }
 
