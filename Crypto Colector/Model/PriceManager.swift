@@ -22,7 +22,21 @@ struct PriceManager {
             // Step 2 tworzę sesję
             let session = URLSession(configuration: .default)
             // Step 3 przypisuję sesję do zadania:
-            let task = session.dataTask(with: url, completionHandler: handle(data:response:error:))
+            let task = session.dataTask(with: url) { data, response, error in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                
+                if let safeData = data {
+                 //   let dataString = String(data: safeData, encoding: .utf8) tego już nie potrzebuję
+                   // print(dataString) parsuję zamiast drukowania
+                    parseJSON(priceData: safeData)
+                    
+                }
+            }
+            
+            // let task = session.dataTask(with: url, completionHandler: handle(data:response:error:))
             
             // Step 4 start Task
             task.resume()
@@ -30,16 +44,22 @@ struct PriceManager {
         
     }
     
+  /*
     func handle(data: Data?, response: URLResponse?, error: Error?) {
-        if error != nil {
-            print(error!)
-            return
+        
+    }
+  */
+    
+    func parseJSON(priceData: Data){
+        let decoder = JSONDecoder()
+        do {
+           let decodedData = try decoder.decode(CoinData.self, from: priceData)
+            // let decodedDataStr = String(format: "%.2f", decodedData)
+            print(decodedData.rate)
+        } catch {
+            print(error)
         }
         
-        if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString)
-        }
     }
     
 }
