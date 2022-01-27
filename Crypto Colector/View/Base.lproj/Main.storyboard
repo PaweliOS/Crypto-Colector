@@ -236,6 +236,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="outFiatBTC" destination="Zic-U7-NNt" id="HWz-c8-gYT"/>
                         <outlet property="outGuzikEUR" destination="ZYg-Vq-NEC" id="ggk-7P-0zn"/>
                         <outlet property="outGuzikPLN" destination="PeR-EC-8QL" id="RQ6-cb-vO1"/>
                         <outlet property="outGuzikUSD" destination="QPE-W8-GRu" id="Wy7-Js-fiz"/>

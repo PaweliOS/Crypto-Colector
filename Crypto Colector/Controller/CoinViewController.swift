@@ -8,18 +8,20 @@
 import UIKit
 
 
-class CoinViewController: UIViewController {
+class CoinViewController: UIViewController, PriceManagerDelegate {
 
     @IBOutlet weak var outGuzikPLN: UIButton!
     @IBOutlet weak var outGuzikUSD: UIButton!
     @IBOutlet weak var outGuzikEUR: UIButton!
     
-
+    @IBOutlet weak var outFiatBTC: UILabel!
+    
     var priceManager = PriceManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        priceManager.delegate = self
     }
 
     
@@ -51,8 +53,21 @@ class CoinViewController: UIViewController {
         } else {
             fiatName = "EUR"
         }
+        // wysyłka danych do ułożenia URL
         priceManager.fetchCoinPrice(coinName: "BTC", fiatName: fiatName)
+      //  priceManager.fetchCoinPrice(coinName: "ETH", fiatName: fiatName)
     }
 
+    // Funkcja aktualizacji ceny:
+    func didUpdatePrice(ratio: Double) {
+        print(ratio)
+        let ratioString = String(format: "%.2f", ratio)
+        // główny wątek:
+        DispatchQueue.main.async {
+            self.outFiatBTC.text = ratioString
+        }
+        
+    }
+    
 }
 

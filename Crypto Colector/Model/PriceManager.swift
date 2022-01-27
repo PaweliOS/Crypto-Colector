@@ -7,13 +7,20 @@
 
 import Foundation
 
+protocol PriceManagerDelegate {
+    func didUpdatePrice(ratio: Double)
+}
+
 struct PriceManager {
     
     let priceURL = "https://rest.coinapi.io/v1/exchangerate/"
     
+    var delegate: PriceManagerDelegate?
+    
     func fetchCoinPrice (coinName: String, fiatName: String) {
         let urlString = "\(priceURL)\(coinName)/\(fiatName)?apikey=11161ACB-0926-4667-B7B3-82277B4164B6"
         performRequest(urlString: urlString)
+      //  print(urlString)
     }
     
     func performRequest(urlString: String) {
@@ -29,10 +36,12 @@ struct PriceManager {
                 }
                 
                 if let safeData = data {
-                 //   let dataString = String(data: safeData, encoding: .utf8) tego już nie potrzebuję
-                   // print(dataString) parsuję zamiast drukowania
-                    parseJSON(priceData: safeData)
-                    
+                    //  let dataString = String(data: safeData, encoding: .utf8) tego już nie potrzebuję
+                    //  print(dataString) parsuję zamiast drukowania
+                    if let ratio = parseJSON(priceData: safeData) {
+                        self.delegate?.didUpdatePrice(ratio: ratio)
+                      //  print(ratio)
+                    }
                 }
             }
             
@@ -49,17 +58,24 @@ struct PriceManager {
         
     }
   */
-    
-    func parseJSON(priceData: Data){
+    // zwracam tylko Double
+    func parseJSON(priceData: Data) -> Double?{
         let decoder = JSONDecoder()
         do {
            let decodedData = try decoder.decode(CoinData.self, from: priceData)
             // let decodedDataStr = String(format: "%.2f", decodedData)
-            print(decodedData.rate)
+            
+          //  print(decodedData.rate)
+            
+            let ratio = decodedData.rate
+          //  print(ratio)
+            return ratio
         } catch {
             print(error)
+            return nil
         }
         
     }
     
 }
+

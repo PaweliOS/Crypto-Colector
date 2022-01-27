@@ -85,9 +85,9 @@
 		E59022482794B97B00FDA2AB /* Crypto Colector */ = {
 			isa = PBXGroup;
 			children = (
-				E57AD2F42796D73C00A18550 /* Model */,
 				E59022492794B97B00FDA2AB /* AppDelegate.swift */,
 				E590224B2794B97B00FDA2AB /* SceneDelegate.swift */,
+				E57AD2F42796D73C00A18550 /* Model */,
 				E57AD2F62796D76200A18550 /* Controller */,
 				E57AD2F52796D74F00A18550 /* View */,
 				E59022522794B98000FDA2AB /* Assets.xcassets */,
