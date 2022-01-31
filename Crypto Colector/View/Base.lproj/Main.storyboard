@@ -236,7 +236,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="outFiatADA" destination="rI8-Cs-g2x" id="7Rd-bB-OHL"/>
+                        <outlet property="outFiatBNB" destination="2WZ-7P-Y8C" id="ZGI-Zq-tTz"/>
                         <outlet property="outFiatBTC" destination="Zic-U7-NNt" id="HWz-c8-gYT"/>
+                        <outlet property="outFiatETH" destination="Bt0-fX-L88" id="fxt-Ee-KhG"/>
                         <outlet property="outGuzikEUR" destination="ZYg-Vq-NEC" id="ggk-7P-0zn"/>
                         <outlet property="outGuzikPLN" destination="PeR-EC-8QL" id="RQ6-cb-vO1"/>
                         <outlet property="outGuzikUSD" destination="QPE-W8-GRu" id="Wy7-Js-fiz"/>

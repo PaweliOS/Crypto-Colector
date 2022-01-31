@@ -15,8 +15,16 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
     @IBOutlet weak var outGuzikEUR: UIButton!
     
     @IBOutlet weak var outFiatBTC: UILabel!
+    @IBOutlet weak var outFiatETH: UILabel!
+    @IBOutlet weak var outFiatBNB: UILabel!
+    @IBOutlet weak var outFiatADA: UILabel!
     
     var priceManager = PriceManager()
+    
+    let coinBTC = "BTC"
+    let coinETH = "ETH"
+    let coinBNB = "BNB"
+    let coinADA = "ADA"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +52,7 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
         var fiatName = "PLN"
-        
+
    
         if outGuzikPLN.isSelected {
             fiatName = "PLN"
@@ -54,20 +62,40 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
             fiatName = "EUR"
         }
         // wysyłka danych do ułożenia URL
-        priceManager.fetchCoinPrice(coinName: "BTC", fiatName: fiatName)
-      //  priceManager.fetchCoinPrice(coinName: "ETH", fiatName: fiatName)
+        priceManager.fetchCoinPrice(coinName: coinBTC, fiatName: fiatName)
+        priceManager.fetchCoinPrice(coinName: coinETH, fiatName: fiatName)
+        priceManager.fetchCoinPrice(coinName: coinBNB, fiatName: fiatName)
+        priceManager.fetchCoinPrice(coinName: coinADA, fiatName: fiatName)
     }
 
     // Funkcja aktualizacji ceny:
-    func didUpdatePrice(ratio: Double) {
-        print(ratio)
-        let ratioString = String(format: "%.2f", ratio)
+    func didUpdatePrice(_ priceManager: PriceManager, coin: CoinModel) {
+    //    print(ratio)
+    //    let ratioString = String(format: "%.2f", ratio)
+        
         // główny wątek:
-        DispatchQueue.main.async {
+        let cryptoN = coin.coinN
+        let ratioString = coin.priceString
+    
+    
+        switch cryptoN {
+        case "BTC" : DispatchQueue.main.async {
             self.outFiatBTC.text = ratioString
         }
-        
+        case "ETH" : DispatchQueue.main.async {
+            self.outFiatETH.text = ratioString
+        }
+        case "BNB" : DispatchQueue.main.async {
+            self.outFiatBNB.text = ratioString
+        }
+        case "ADA" : DispatchQueue.main.async {
+            self.outFiatADA.text = ratioString
+        }
+        default:
+            return
+        }
+     
     }
-    
+  
 }
 
