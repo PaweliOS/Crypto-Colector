@@ -19,6 +19,9 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
     @IBOutlet weak var outFiatBNB: UILabel!
     @IBOutlet weak var outFiatADA: UILabel!
     
+    @IBOutlet weak var outLabelState: UILabel!
+    @IBOutlet weak var outSwitchDark: UISwitch!
+    
     var priceManager = PriceManager()
     
     let coinBTC = "BTC"
@@ -26,8 +29,15 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
     let coinBNB = "BNB"
     let coinADA = "ADA"
     
+    let userDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+// zaczytuję ustawienia z userDafaults
+        overrideUserInterfaceStyle = userDefaults.bool(forKey: "Display_mode") ? .dark : .light
+        outSwitchDark.isOn = userDefaults.bool(forKey: "Display_mode") ? true : false
+        
+        //  overrideUserInterfaceStyle = .dark
         // Do any additional setup after loading the view.
         priceManager.delegate = self
     }
@@ -48,6 +58,13 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
         outGuzikPLN.isSelected = false
         outGuzikUSD.isSelected = false
         outGuzikEUR.isSelected = true
+    }
+    
+    
+    @IBAction func changedMode(_ sender: UISwitch) {
+        let switchStatus: Bool = outSwitchDark.isOn
+        overrideUserInterfaceStyle = switchStatus ? .dark : .light
+        userDefaults.set(switchStatus, forKey: "Display_mode")
     }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
@@ -97,5 +114,8 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
      
     }
   
+    
+    
+    
 }
 

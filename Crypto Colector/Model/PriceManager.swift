@@ -21,8 +21,6 @@ struct PriceManager {
     func fetchCoinPrice (coinName: String, fiatName: String) {
         let urlString = "\(priceURL)\(coinName)/\(fiatName)?apikey=11161ACB-0926-4667-B7B3-82277B4164B6"
         performRequest(urlString: urlString)
-      
-      //  print(urlString)
     }
     
     func performRequest(urlString: String) {
@@ -42,7 +40,6 @@ struct PriceManager {
                     //  print(dataString) parsuję zamiast drukowania i przypisuję do obiektu
                     if let coinN = parseJSON(priceData: safeData) {
                         self.delegate?.didUpdatePrice(self, coin: coinN)
-                      //  print(ratio)
                     }
                 }
             }
@@ -60,14 +57,11 @@ struct PriceManager {
         
     }
   */
-    // zwracam tylko Double
+
     func parseJSON(priceData: Data) -> CoinModel? {
         let decoder = JSONDecoder()
         do {
            let decodedData = try decoder.decode(CoinData.self, from: priceData)
-            // let decodedDataStr = String(format: "%.2f", decodedData)
-            
-          //  print(decodedData.rate)
             
             let ratio = decodedData.rate
             let coinN = decodedData.asset_id_base
