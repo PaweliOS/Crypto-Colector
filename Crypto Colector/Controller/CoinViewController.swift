@@ -35,8 +35,8 @@ class CoinViewController: UIViewController, PriceManagerDelegate {
         super.viewDidLoad()
 // zaczytuję ustawienia z userDafaults
         overrideUserInterfaceStyle = userDefaults.bool(forKey: "Display_mode") ? .dark : .light
-        outSwitchDark.isOn = userDefaults.bool(forKey: "Display_mode") ? true : false
-        
+        let switchStatus: Bool = userDefaults.bool(forKey: "Display_mode") ? true : false
+        outSwitchDark.setOn(switchStatus, animated: true)
         //  overrideUserInterfaceStyle = .dark
         // Do any additional setup after loading the view.
         priceManager.delegate = self

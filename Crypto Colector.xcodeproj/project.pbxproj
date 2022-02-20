@@ -16,6 +16,7 @@
 		E59022532794B98000FDA2AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59022522794B98000FDA2AB /* Assets.xcassets */; };
 		E59022562794B98000FDA2AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59022542794B98000FDA2AB /* LaunchScreen.storyboard */; };
 		E5DBCE7827A2C3440023B35B /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DBCE7727A2C3440023B35B /* CoinModel.swift */; };
+		E5DBCE9C27C2E7C80023B35B /* coingecko-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DBCE9B27C2E7C70023B35B /* coingecko-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E59022552794B98000FDA2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E59022572794B98000FDA2AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5DBCE7727A2C3440023B35B /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		E5DBCE9B27C2E7C70023B35B /* coingecko-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coingecko-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				E57AD2F62796D76200A18550 /* Controller */,
 				E57AD2F52796D74F00A18550 /* View */,
 				E59022522794B98000FDA2AB /* Assets.xcassets */,
+				E5DBCE9B27C2E7C70023B35B /* coingecko-logo.png */,
 				E59022542794B98000FDA2AB /* LaunchScreen.storyboard */,
 				E59022572794B98000FDA2AB /* Info.plist */,
 			);
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59022562794B98000FDA2AB /* LaunchScreen.storyboard in Resources */,
+				E5DBCE9C27C2E7C80023B35B /* coingecko-logo.png in Resources */,
 				E59022532794B98000FDA2AB /* Assets.xcassets in Resources */,
 				E59022512794B97B00FDA2AB /* Main.storyboard in Resources */,
 			);
